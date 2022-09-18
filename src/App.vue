@@ -1,20 +1,40 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="" :id="$style.app">
+    <h1>{{title}}</h1>
+    <standard-button 
+      @click="increment"
+      outlined
+    >Click me</standard-button>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import StandardButton from './components/StandardButton.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    StandardButton
+  },
+  data() {
+    return {
+      amountOfClicks: 0
+    }
+  },
+  computed: {
+    title() {
+      return ` Amount of clicks ${this.amountOfClicks}`
+    }
+  },
+  methods: {
+    increment() {
+      this.amountOfClicks +=1
+    }
   }
 }
 </script>
 
-<style>
+<style module>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
