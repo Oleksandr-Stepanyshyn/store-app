@@ -38,6 +38,11 @@ import StarRating from '@/components/StarRating.vue';
         type: String,
         default: ''
       }
+    },
+    methods:{
+      log() {
+        console.log('click');
+      }
     }
   }
 </script>
