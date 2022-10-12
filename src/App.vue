@@ -1,7 +1,7 @@
 <template>
   <div class="" :id="$style.app">
     <h2>{{text}}</h2>
-    <custom-select :items="['name', 'label', 'salary']" v-model="text"/>
+    <custom-select :items="['name', 'label', 'salary']"/>
     <custom-input v-model="text"/>
     <apartments-list :items="apartments">
       <template v-slot:title>New title</template>
