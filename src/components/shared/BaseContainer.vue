@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: 'base-container',
+    name: 'BaseContainer',
     components:{
       
     }

@@ -5,7 +5,7 @@
       <div class="apartments-item__content">
         <p class="apartments-item__description">{{description}}</p>
         <div class="apartments-item__rating">
-          <star-rating :rating="rating"/>
+          <StarRating :rating="rating"/>
         </div>
         <div class="apartments-item__price">UAH {{price}}</div>
       </div>

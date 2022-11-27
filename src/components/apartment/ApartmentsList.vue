@@ -1,16 +1,17 @@
 <template>
-  <base-container>
+  <BaseContainer>
     <slot name="title"></slot>
     <div class="apartments-list">
       <template v-for="apartment in items">
         <slot name="apartment" v-bind:apartment="apartment"></slot>
       </template>
     </div>
-  </base-container>
+  </BaseContainer>
 </template>
 
 <script>
   import BaseContainer from '../shared/BaseContainer.vue';
+  
   export default {
     name: 'apartments-list',
     components:{

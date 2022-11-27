@@ -1,17 +1,26 @@
 <template>
-  <input :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" class="custom-input">
+  <input
+    :value="modelValue"
+    @input="updModalValue($event.target.value)"
+    class="custom-input"
+  />
 </template>
 
 <script>
-  export default {
-    name: 'custom-input',
-    props:['modelValue'],
-    emits: ['update:modelValue']
-  }
+export default {
+  name: "CustomInput",
+  props: ["modelValue"],
+  emits: ["update:modelValue"],
+  methods: {
+    updModalValue(value) {
+      this.$emit("update:modelValue", value);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/scss/variables';
+@import "../../assets/scss/variables";
 
 .wrapper-input {
   position: relative;
@@ -19,12 +28,14 @@
 }
 .custom-input {
   height: 40px;
+  max-width: 220px;
   width: 100%;
   border: 2px solid $main-color;
   font-size: 18px;
   outline: none;
   line-height: inherit;
   padding: 8px 15px;
+
   &::placeholder {
     color: inherit;
   }

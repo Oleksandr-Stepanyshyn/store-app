@@ -1,28 +1,38 @@
 <template>
-  <select class="custom-select">
+  <select @input="select($event.target.value)" class="custom-select">
     <option 
       v-for="item in formattedItems" 
       :value="item.value" 
       :key="item.value"
+      :selected="item.selected"
     >{{item.label}}</option>
   </select>
 </template>
 
 <script>
   export default {
-    name: 'custom-select',
+    name: 'CustomSelect',
     props:{
+      // city: {
+      //   type: String,
+      //   required: true
+      // },
       items: {
         type: Array,
         required: true,
       }
     },
-    emits: ['update:items'],
+    emits: ['update:modelValue'],
     computed:{
       formattedItems() {
         return this.items.map(item => {
           return typeof item === "object" ? item : { value: item, label: item };
         })
+      }
+    },
+    methods:{
+      select(value) {
+        this.$emit("update:modelValue", value);
       }
     }
   }
