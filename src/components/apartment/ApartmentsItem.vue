@@ -1,50 +1,54 @@
 <template>
   <div class="apartments-item">
     <div class="apartments-item__inner">
-      <img :src="imgSrc" alt="" class="apartments-item__photo">
+      <img :src="imgSrc" alt="" class="apartments-item__photo" />
       <div class="apartments-item__content">
-        <p class="apartments-item__description">{{description}}</p>
+        <p class="apartments-item__description">{{ description }}</p>
         <div class="apartments-item__rating">
-          <StarRating :rating="rating"/>
+          <StarRating :rating="rating" />
         </div>
-        <div class="apartments-item__price">UAH {{price}}</div>
+        <div class="apartments-item__price">UAH {{ price }}</div>
+        <router-link
+          class="apartments-item__link"
+          :to="'apartment'"
+        ></router-link>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import StarRating from '@/components/StarRating.vue';
+import StarRating from "@/components/StarRating.vue";
 
-  export default {
-    name: 'apartments-item',
-    components:{
-      StarRating
+export default {
+  name: "apartments-item",
+  components: {
+    StarRating,
+  },
+  props: {
+    description: {
+      type: String,
+      default: "",
     },
-    props:{
-      description: {
-        type: String,
-        default: ''
-      },
-      rating: {
-        type: Number,
-        default: 0
-      },
-      price: {
-        type: Number,
-        required: true
-      },
-      imgSrc: {
-        type: String,
-        default: ''
-      }
+    rating: {
+      type: Number,
+      default: 0,
     },
-    methods:{
-      log() {
-        console.log('click');
-      }
-    }
-  }
+    price: {
+      type: Number,
+      required: true,
+    },
+    imgSrc: {
+      type: String,
+      default: "",
+    },
+  },
+  methods: {
+    log() {
+      console.log("click");
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -98,6 +102,14 @@ import StarRating from '@/components/StarRating.vue';
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  &__link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 
   &__link {
