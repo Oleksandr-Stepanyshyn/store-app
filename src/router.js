@@ -2,17 +2,18 @@ import BaseFoo from "./views/BaseFoo.vue";
 import BaseBar from "./views/BaseBar.vue";
 import HomePage from "@/views/HomePage.vue";
 import ApartmentPage from "@/views/ApartmentPage.vue";
+import ErrorPage from "@/views/ErrorPage.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
   {
     path: "/",
-    name: "Home",
+    name: "home",
     component: HomePage,
   },
   {
-    path: "/apartment",
-    name: "Apartment",
+    path: "/apartment/:id",
+    name: "apartment",
     component: ApartmentPage,
   },
   {
@@ -24,6 +25,11 @@ const routes = [
     path: "/bar",
     name: "bar",
     component: BaseBar,
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "error-page",
+    component: ErrorPage,
   },
 ];
 

@@ -10,6 +10,7 @@
         <!-- <template v-slot:title>New title</template> -->
         <template v-slot:apartment="{ apartment }">
           <ApartmentsItem
+            :id="apartment.id"
             :key="apartment.id"
             :description="apartment.descr"
             :rating="apartment.rating"
